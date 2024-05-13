@@ -3,16 +3,39 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        StringBuilder builder = new StringBuilder();
-
         try {
-            List<String> lines = Files.readAllLines(Paths.get("data/info.txt"));
-            lines.forEach(line -> builder.append(line + "\n"));
+
+            ArrayList<String> strings = new ArrayList<>();
+            for (int i = 0; i < 1000; i++) {
+                strings.add(Integer.toString(i));
+            }
+
+            Files.write(Paths.get("data/file2.txt"), strings);
+//            PrintWriter writer = new PrintWriter("data/file.txt");
+//            for (int i = 0; i < 1000; i++) {
+//                writer.write(i + "\n");
+//            }
+//            writer.flush();
+//            writer.close();
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+
+
+
+//        StringBuilder builder = new StringBuilder();
+//
+//        try {
+//            List<String> lines = Files.readAllLines(Paths.get("data/info.txt"));
+//            lines.forEach(line -> builder.append(line + "\n"));
 //            BufferedReader br = new BufferedReader(new FileReader("data/info.txt"));
 //            for (;;) {
 //                String line = br.readLine();
@@ -31,12 +54,12 @@ public class Main {
 //                builder.append(ch);
 //            }
 
-        }
-        catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-        System.out.println(builder.toString());
+//        }
+//        catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+//
+//        System.out.println(builder.toString());
 //        StringBuilder builder = new StringBuilder();
 //
 //        try {
