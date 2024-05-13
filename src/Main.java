@@ -11,14 +11,16 @@ public class Main {
         StringBuilder builder = new StringBuilder();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("data/info.txt"));
-            for (;;) {
-                String line = br.readLine();
-                if (line == null) {
-                    break;
-                }
-                builder.append(line + "\n");
-            }
+            List<String> lines = Files.readAllLines(Paths.get("data/info.txt"));
+            lines.forEach(line -> builder.append(line + "\n"));
+//            BufferedReader br = new BufferedReader(new FileReader("data/info.txt"));
+//            for (;;) {
+//                String line = br.readLine();
+//                if (line == null) {
+//                    break;
+//                }
+//                builder.append(line + "\n");
+//            }
 //            FileInputStream is = new FileInputStream("data/info.txt");
 //            for (;;) {
 //                int code = is.read();
