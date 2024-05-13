@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,15 +11,23 @@ public class Main {
         StringBuilder builder = new StringBuilder();
 
         try {
-            FileInputStream is = new FileInputStream("data/info.txt");
+            BufferedReader br = new BufferedReader(new FileReader("data/info.txt"));
             for (;;) {
-                int code = is.read();
-                if (code < 0) {
+                String line = br.readLine();
+                if (line == null) {
                     break;
                 }
-                char ch = (char) code;
-                builder.append(ch);
+                builder.append(line + "\n");
             }
+//            FileInputStream is = new FileInputStream("data/info.txt");
+//            for (;;) {
+//                int code = is.read();
+//                if (code < 0) {
+//                    break;
+//                }
+//                char ch = (char) code;
+//                builder.append(ch);
+//            }
 
         }
         catch (Exception ex) {
